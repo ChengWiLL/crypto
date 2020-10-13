@@ -90,6 +90,10 @@ type ServerConfig struct {
 	// methods auth can continue
 	NextAuthMethodsCallback func(conn ConnMetadata) []string
 
+	// GUGUAuthMethodsCallback if non-nil, is called when user login
+	// into system use by GUGU
+	GUGUAuthMethodsCallback func(conn ConnMetadata) (*Permissions, error)
+
 	// AuthLogCallback, if non-nil, is called to log all authentication
 	// attempts.
 	AuthLogCallback func(conn ConnMetadata, method string, err error)
